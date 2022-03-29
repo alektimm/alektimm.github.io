@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alek Timm&#39;s Sports Blog</title>
+    <link>http://alektimm.github.io/</link>
+    <description>Recent content on Alek Timm&#39;s Sports Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://alektimm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://alektimm.github.io/about/</link>
+      <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://alektimm.github.io/about/</guid>
+      <description>LOREM IPSUM</description>
+    </item>
+    
+    <item>
+      <title>PRACTICE POST</title>
+      <link>http://alektimm.github.io/2022/03/24/asdf/</link>
+      <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://alektimm.github.io/2022/03/24/asdf/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
