@@ -64,7 +64,7 @@
 
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">6 min read</span>
     
 
     <h1 class="article-title">Drive for dough? How the PGA TOUR&#39;s best make their money</h1>
@@ -82,120 +82,54 @@
 <p>Professional golfers are terrific putters; however, it’s the driver that makes the money for the best in the world.</p>
 <p>The players have caught on to this idea.</p>
 <p>The average distance off the tee across all players on TOUR has climbed to 297 yards, nearly 30 yards more than Tiger Woods’ first full season in 1997. On a par 72 course with 4 par 3s, that is an extra 420 yards of distance added over that span.</p>
-<p>The ability to separate yourself from the field with the driver is a major component of the best players in the world of late.</p>
-<p>To find the best players, we can look at the leaders in PGA TOUR’s FedEx Cup Points standings across 2019-2021. Points are awarded for tournament finishes with the season-ending leader taking home the dough. $15 million to be exact.</p>
-<p>Over that span, Jon Rahm, Justin Thomas, Patrick Cantlay, Dustin Johnson, and Tony Finau lead the way in FedEx Cup Points.</p>
-<p>The key to each player’s success? Driving. The strokes gained statistics show it.</p>
-<p>The PGA TOUR measures strokes gained, a calculation of how much better a player performs against their competitors. The calculation is based on recorded data of how many shots on average it takes players to hole the ball from all distances and situations.</p>
-<p>If the field averages a score of 70 strokes and the player shoots 65, his total strokes gained would be +5. Thus, the higher the better.</p>
-<p>Strokes gained can be broken down into different measurements for each aspect of the game—driving, approach shots, chipping, and putting. For example, if a player drives the ball to a more favorable location than the field average, they get a boost in their strokes gained: driving.</p>
-<p>When it comes to the best players, they are gaining the most strokes from the field with the driver.</p>
 <pre><code>## Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
 ## replace the existing scale.</code></pre>
 <pre><code>## Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
 ## replace the existing scale.</code></pre>
-<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<pre class="r"><code>fecleaderswide &lt;- seasonlogs %&gt;% 
-  select(PLAYER, Driving, Putting, Approach, Chipping) %&gt;% 
-  filter(PLAYER == &quot;Dustin Johnson&quot; | PLAYER == &quot;Patrick Cantlay&quot; | PLAYER == &quot;Justin Thomas&quot; | PLAYER == &quot;Jon Rahm&quot; | PLAYER == &quot;Tony Finau&quot;)
-
-fecleaderslong &lt;- fecleaderswide %&gt;% 
-  pivot_longer(
-    cols=Driving | Putting | Approach | Chipping, 
-    names_to=&quot;Type&quot;, 
-    values_to=&quot;StrokesGained&quot;)</code></pre>
+<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+The ability to separate yourself from the field with the driver is a major component of the best players’ skillsets.</p>
+<p>To find the best players, we can look at the leaders in the PGA TOUR’s FedEx Cup Points standings across 2019-2021. Points are awarded for tournament finishes with the season-ending leader taking home the dough. $15 million to be exact.</p>
+<p>Over that span, Jon Rahm, Justin Thomas, Patrick Cantlay, Dustin Johnson, and Tony Finau lead the way in FedEx Cup Points.</p>
+<p>The key to each player’s success? Driving. The strokes gained statistics show it.</p>
+<p>The PGA TOUR uses ShotLink data to measure strokes gained, a calculation of how much better a player performs against their competitors. ShotLink data provides an average for how many strokes it takes the average TOUR player to hole the ball from all distances and situations.</p>
+<p>For example, the TOUR average strokes for the first hole at TPC Sawgrass is 4.10. Player A drives the ball 115 yards from the hole. On average, it takes a TOUR player 2.50 strokes to hole the ball from that location. Player A gained 0.60 strokes driving. Here’s how:</p>
+<p>Baseline for tee - Baseline for second shot - 1 = strokes gained driving
+4.10 - 2.50 = 1.60 - 1 = +0.60</p>
+<p>In short, the closer a player can get the ball to the hole, the more separation they can get from the field.</p>
+<p>Strokes gained can be broken down into different measurements for each aspect of the game—driving, approach shots, chipping, and putting. The process simply repeats for each measurement as the player progresses to the hole, each time measuring their proximity against the TOUR average distance from their previous shot.</p>
+<p>If putting is what really makes the dough, it seems fair to assume that the best players in the world are the best putters. Based on this logic, these players would gain the most separation from the field on the putting green, putting the ball much closer than their competitors.</p>
+<p>This is far from true.</p>
+<p>The best players would argue it’s their ability to get to the green in fewer strokes that makes them elite. They do it with distance.</p>
 <pre><code>## Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
 ## replace the existing scale.</code></pre>
-<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+In the case of Justin Thomas, he is actually losing strokes to the field average in putting. Yet, he still gets FedEx Cup Points by driving the ball further.</p>
+<p>In fact, strokes gained driving has the strongest correlation with a player’s FedEx Cup Points total of each category of strokes gained. Approximately 22 percent of a player’s Points total is dependent upon their strokes gained driving.</p>
+<pre><code>## Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
+## replace the existing scale.</code></pre>
+<pre><code>## Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
+## replace the existing scale.</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre><code>## # A tibble: 1 × 2
 ##     ott  putt
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1  27.5  24.0</code></pre>
-<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<pre><code>## 
-## Call:
-## lm(formula = accuracyavg ~ Points, data = seasonlogs)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -10.099  -2.896  -0.775   2.940  11.470 
-## 
-## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 62.623097   0.855576  73.194   &lt;2e-16 ***
-## Points      -0.000311   0.000256  -1.215    0.227    
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 4.297 on 98 degrees of freedom
-## Multiple R-squared:  0.01484,    Adjusted R-squared:  0.004782 
-## F-statistic: 1.476 on 1 and 98 DF,  p-value: 0.2274</code></pre>
-<pre><code>## 
-## Call:
-## lm(formula = Driving ~ Points, data = seasonlogs)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -123.77  -31.54    2.85   27.23  118.70 
-## 
-## Coefficients:
-##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -17.227537   9.405819  -1.832   0.0701 .  
-## Points        0.015488   0.002815   5.503 2.99e-07 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 47.24 on 98 degrees of freedom
-## Multiple R-squared:  0.236,  Adjusted R-squared:  0.2282 
-## F-statistic: 30.28 on 1 and 98 DF,  p-value: 2.993e-07</code></pre>
-<pre><code>## 
-## Call:
-## lm(formula = Putting ~ Points, data = seasonlogs)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -136.950  -36.474    7.594   34.165  147.346 
-## 
-## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)  
-## (Intercept)  6.412859  10.322415   0.621   0.5359  
-## Points       0.006097   0.003089   1.974   0.0512 .
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 51.84 on 98 degrees of freedom
-## Multiple R-squared:  0.03823,    Adjusted R-squared:  0.02842 
-## F-statistic: 3.896 on 1 and 98 DF,  p-value: 0.05122</code></pre>
-<pre><code>## 
-## Call:
-## lm(formula = sgttgtotal ~ Points, data = seasonlogs)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -2.86464 -0.73513 -0.04116  0.73578  2.60212 
-## 
-## Coefficients:
-##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -6.984e-01  2.201e-01  -3.174  0.00201 ** 
-## Points       6.151e-04  6.585e-05   9.341 3.25e-15 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 1.105 on 98 degrees of freedom
-## Multiple R-squared:  0.471,  Adjusted R-squared:  0.4656 
-## F-statistic: 87.26 on 1 and 98 DF,  p-value: 3.254e-15</code></pre>
+<p>On the other hand, there is just a two percent correlation between higher strokes gained putting and more FedEx Cup Points.</p>
 <pre><code>## Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
 ## replace the existing scale.</code></pre>
 <pre><code>## Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
 ## replace the existing scale.</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre><code>## Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
-## replace the existing scale.</code></pre>
-<pre><code>## Scale for &#39;x&#39; is already present. Adding another scale for &#39;x&#39;, which will
-## replace the existing scale.</code></pre>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Good putting helps, but driving the ball closer to the green is much more important. Without distance, it is hard to compete.</p>
+<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+It doesn’t always take an above average performance on the greens to make money on the PGA TOUR. Players can compensate poor putting with solid driving, but good putting does not compensate poor driving.</p>
+<p>Justin Thomas and Tony Finau live by this logic. They both rank in the top ten in strokes gained driving but are actually below average putters. They can get away with a less than stellar year putting and still come away with far more money than the world’s best putters.</p>
+<p>Players like this are beginning to emerge more and more on TOUR. Some have coined the phrase “bomb and gouge” to describe their style of play, emphasizing distance over putting and accuracy off the tee. While logic says it’s better to play from the fairway than the rough, players also say they are better off hitting from the rough 75 yards from the hole than 150 yards away in the fairway.</p>
+<p>It’s a smart approach.</p>
+<p>Many courses grow the rough higher or add more obstacles to penalize inaccurate drivers and force players to separate themselves in the fairway and on the green.</p>
+<p>It makes sense, but distance is still king amongst the FedEx Cup Point leaders.</p>
 <pre><code>## # A tibble: 1 × 2
 ##   distance accuracy
 ##      &lt;dbl&gt;    &lt;dbl&gt;
@@ -204,7 +138,9 @@ fecleaderslong &lt;- fecleaderswide %&gt;%
 ## replace the existing scale.</code></pre>
 <pre><code>## Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
 ## replace the existing scale.</code></pre>
-<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="http://alektimm.github.io/2022/04/10/drive-for-dough-how-the-pga-tour-s-best-make-their-money/index_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+This is the exact reason why a 51-year-old Phil Mickelson preaches “hitting bombs” even if it means playing from the rough more often. Players are seeing how adding distance at the expense of accuracy and putting finesse can benefit their game.</p>
+<p>Golf’s governing bodies must find a way to roll back the distance if they want to give out less dough to whoever can hit it the longest. But for now, the long hitters are cashing in much more than the top putters.</p>
 
     </div>
   </article>
